@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小红书图片生成器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <div>
+          <p class="eyebrow">叻猫出品</p>
+          <h1>小红书图片生成器</h1>
+          <p class="subtext">上传截图，改标题、说明和标签，直接导出成图。</p>
+        </div>
+
+        <section class="control-group">
+          <label for="theme">模板风格</label>
+          <select id="theme">
+            <option value="dark">深色科技风</option>
+            <option value="light">浅色简洁风</option>
+          </select>
+        </section>
+
+        <section class="control-group inline-grid">
+          <div>
+            <label for="ratio">画布比例</label>
+            <select id="ratio">
+              <option value="3:4">3:4</option>
+              <option value="4:5">4:5</option>
+              <option value="1:1">1:1</option>
+            </select>
+          </div>
+          <div>
+            <label for="scale">导出倍数</label>
+            <select id="scale">
+              <option value="1">1x</option>
+              <option value="2" selected>2x</option>
+              <option value="3">3x</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="control-group">
+          <label for="title">主标题</label>
+          <textarea id="title" rows="2">学技能</textarea>
+        </section>
+
+        <section class="control-group">
+          <label for="subtitle">副标题</label>
+          <input id="subtitle" type="text" value="3个超猛 Deep Research 工具" />
+        </section>
+
+        <section class="control-group">
+          <label for="description">说明卡片</label>
+          <textarea id="description" rows="5">建议收藏。把复杂问题拆成搜索、推理、整合三步，效率会高很多。这个模板适合做技能分享、工具推荐、方法论总结。</textarea>
+        </section>
+
+        <section class="control-group">
+          <label for="tags">标签（用英文逗号分隔）</label>
+          <textarea id="tags" rows="3">Deep Research, AI工具, 效率神器, 技能分享, 小红书封面</textarea>
+        </section>
+
+        <section class="control-group">
+          <label for="imageUpload">主图 / 截图</label>
+          <input id="imageUpload" type="file" accept="image/*" />
+          <button id="useReference" class="ghost-button" type="button">使用示例参考图</button>
+        </section>
+
+        <section class="control-group inline-grid">
+          <div>
+            <label for="noteTitle">说明标题</label>
+            <input id="noteTitle" type="text" value="一图看懂" />
+          </div>
+          <div>
+            <label for="noteAccent">强调词</label>
+            <input id="noteAccent" type="text" value="直接套用" />
+          </div>
+        </section>
+
+        <div class="button-row">
+          <button id="downloadBtn" class="primary-button" type="button">导出 PNG</button>
+          <button id="resetBtn" class="ghost-button" type="button">重置</button>
+        </div>
+
+        <p class="hint">提示：先上传一张截图，再改文案。右边会实时预览。</p>
+      </aside>
+
+      <main class="preview-panel">
+        <div id="captureRoot" class="capture-root theme-dark ratio-3-4">
+          <div class="poster-background"></div>
+          <div class="poster-content">
+            <header class="poster-header">
+              <p id="previewEyebrow" class="poster-eyebrow">干货拆解</p>
+              <h2 id="previewTitle" class="poster-title">学技能</h2>
+              <p id="previewSubtitle" class="poster-subtitle">3个超猛 Deep Research 工具</p>
+            </header>
+
+            <section class="hero-card">
+              <div class="hero-image-wrap">
+                <img id="previewImage" alt="预览图" />
+                <div id="imagePlaceholder" class="image-placeholder">把截图拖进来，或者点左边上传</div>
+              </div>
+            </section>
+
+            <section class="note-card">
+              <div class="note-header">
+                <span id="previewNoteTitle">一图看懂</span>
+                <span id="previewNoteAccent">直接套用</span>
+              </div>
+              <p id="previewDescription" class="note-body"></p>
+            </section>
+
+            <footer id="previewTags" class="tag-list"></footer>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
