@@ -376,17 +376,4 @@ textarea {
   .image-placeholder {
     min-height: 280px;
   }
-
-  .tri-grid-mobile,
-  .color-grid,
-  .inline-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sticky-actions {
-    position: sticky;
-    bottom: 0;
-    padding-top: 8px;
-    background: linear-gradient(180deg, rgba(17, 19, 25, 0), rgba(17, 19, 25, 0.95) 28%);
-  }
 }
