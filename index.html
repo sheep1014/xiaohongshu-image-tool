@@ -20,6 +20,8 @@
           <select id="theme">
             <option value="dark">深色科技风</option>
             <option value="light">浅色简洁风</option>
+            <option value="berry">莓果潮流风</option>
+            <option value="mint">薄荷清透风</option>
           </select>
         </section>
 
@@ -45,6 +47,28 @@
         <section class="control-group">
           <label for="title">主标题</label>
           <textarea id="title" rows="2">学技能</textarea>
+        </section>
+
+        <section class="control-group inline-grid tri-grid-mobile">
+          <div>
+            <label for="titleSize">标题字号</label>
+            <input id="titleSize" type="number" min="32" max="120" step="1" value="72" />
+          </div>
+          <div>
+            <label for="titleWeight">标题字重</label>
+            <select id="titleWeight">
+              <option value="700">700</option>
+              <option value="800" selected>800</option>
+              <option value="900">900</option>
+            </select>
+          </div>
+          <div>
+            <label for="firstCharMode">首字样式</label>
+            <select id="firstCharMode">
+              <option value="none">不单独强调</option>
+              <option value="custom" selected>首字单独变色</option>
+            </select>
+          </div>
         </section>
 
         <section class="control-group">
@@ -79,16 +103,46 @@
           </div>
         </section>
 
-        <div class="button-row">
+        <section class="control-group">
+          <label>颜色自定义</label>
+          <div class="color-grid">
+            <label class="color-field" for="bgColor">
+              <span>背景色</span>
+              <input id="bgColor" type="color" value="#0f1014" />
+            </label>
+            <label class="color-field" for="accentColor">
+              <span>强调色</span>
+              <input id="accentColor" type="color" value="#9eff00" />
+            </label>
+            <label class="color-field" for="accent2Color">
+              <span>辅助色</span>
+              <input id="accent2Color" type="color" value="#62e7ff" />
+            </label>
+            <label class="color-field" for="titleColor">
+              <span>标题色</span>
+              <input id="titleColor" type="color" value="#f8f8fb" />
+            </label>
+            <label class="color-field" for="subtitleColor">
+              <span>副标题色</span>
+              <input id="subtitleColor" type="color" value="#f8f8fb" />
+            </label>
+            <label class="color-field" for="firstCharColor">
+              <span>首字色</span>
+              <input id="firstCharColor" type="color" value="#62e7ff" />
+            </label>
+          </div>
+        </section>
+
+        <div class="button-row sticky-actions">
           <button id="downloadBtn" class="primary-button" type="button">导出 PNG</button>
           <button id="resetBtn" class="ghost-button" type="button">重置</button>
         </div>
 
-        <p class="hint">提示：先上传一张截图，再改文案。右边会实时预览。</p>
+        <p class="hint">提示：主题和颜色会自动记住。你下次打开还能接着调。</p>
       </aside>
 
       <main class="preview-panel">
-        <div id="captureRoot" class="capture-root theme-dark ratio-3-4">
+        <div id="captureRoot" class="capture-root ratio-3-4">
           <div class="poster-background"></div>
           <div class="poster-content">
             <header class="poster-header">
